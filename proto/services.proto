@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package services;
+
+// Service for processing payments (UNARY)
+service PaymentService {
+    rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
+}
+
+// Service for checking transaction history (SERVER STREAMING)
+service TransactionService {
+    rpc GetTransactionHistory(TransactionRequest) returns (stream TransactionResponse);
+}
+
+// Service for chatting with a customer service bot (BI-DIRECTIONAL STREAMING)
+service ChatService {
+    rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+}
